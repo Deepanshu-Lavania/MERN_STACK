@@ -1,5 +1,7 @@
 const express = require("express");
 const getContollers = require("../controllers/auth-controller");
+const validate = require("../middleware/validate-middleware");
+const signupSchema = require("../models/validator-model");
 const router = express.Router();
 
 //!Aproch1 :Router
@@ -20,6 +22,6 @@ router.route("/about").get((req, res) => {
 }); */
 //! Approch3: 
 router.route("/").get(getContollers.home);
-router.route("/register").post(getContollers.registers);
-router.route("/about").get(getContollers.about);
+router.route("/register").post(validate(signupSchema),getContollers.registers);
+router.route("/login").post(getContollers.login);
 module.exports = router;

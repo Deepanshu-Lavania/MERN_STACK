@@ -10,18 +10,26 @@ const home = async (req, res) => {
     // console.log(err);
   }
 };
-const registers = async (req, res) => {
+const registers = async (req, res) => {//! req and res are part of frontend which handled by the postman / EchoApi
   try {
-    console.log(req.body.username);
     const { username, email, phone, password } = req.body;
 
     const userExit = await User.findOne({ email: email });
     if (userExit) {
       return res.status(400).json({ msg: "email already exists " });
     }
-    console.log(username, email, phone, password); //to console data
     const userCreated = await User.create({ username, email, phone, password }); //to create data in database
-    res.status(200).json({ msg: userCreated }); //to send data on postman / Echoapi
+
+    //to send data on postman / Echoapi
+    res.status(200).json({
+      // msg: userCreated,
+      msg: "registration successful",
+      token: await userCreated.generateTokenfunc(),
+      userId: userCreated._id.toString(), //so that all data will add in string format in database
+      //? In most cases , convertign _id to a string is a good practice beacause it ensures consistency and compatibility across different JWT libraries and systems . It also aligns with the expectations that claims in a JWT  are represented as strings.
+    });
+    /* console.log("token : ", userCreated.generateTokenfunc());
+    console.log(userCreated._id.toString()); */
   } catch (err) {
     res
       .status(400)
@@ -29,14 +37,26 @@ const registers = async (req, res) => {
     // console.log(err);
   }
 };
-const about = async (req, res) => {
+const login = async (req, res) => {
   try {
-    res
-      .status(200)
-      .send("Welcome to about page using auth-Controller inside router");
+    const { email, password } = req.body;
+    const userExit = await User.findOne({ email: email });
+    if (!userExit) {
+      return res.status(400).json({ message: "Invalid Credential" }); //don't go with specific like email doesn't exists
+    }
+    // const user = await bcrypt.compare(password, userExit.password);
+    const user= await userExit.comparePassword(password);//instance mthod for compare password with exists user 
+    if (user) {
+      res.status(200).json({
+        msg: "Login successful",
+        token: await userExit.generateTokenfunc(),
+        userId: userExit._id.toString(),
+      });
+    } else {
+      res.status(401).json({ message: "Invalid email or password" });
+    }
   } catch (err) {
-    res.status(404).send({ msg: "Error Occured in controller Page" }, err);
-    // console.log(err);
+    res.status(500).json({ msg: "Internal server error" }, err);
   }
 };
-module.exports = { home, registers, about };
+module.exports = { home, registers, login };
