@@ -7,10 +7,17 @@ const validate = (schema) => async (req, res, next) => {//!res , req are the par
     const paresBody = await schema.parseAsync(req.body);//await schema.parseAsync(req.body): This line is where the request body (req.body) is validated against the provided schema. 
     req.body = paresBody;//After validation, the req.body is replaced with the parsed and validated data, ensuring that only valid data is passed to the subsequent middleware or route handlers.
     next();
-  } catch (error) {
-    const err =error.errors[0].message;
-    console.log(err);
-    res.status(400).json({ msg:"validation failed" });
+  } catch (err) {
+    const status = 422;
+    const message =  "Fill the input properly";
+    const extraDetails = err.errors[0].message;
+    const Error = {
+      status : status,
+      message:message,
+      extraDetails: extraDetails
+    }
+    // res.status(400).json({ msg:err.errors[0].message });
+    next(Error);
   }
 };
 module.exports = validate;
