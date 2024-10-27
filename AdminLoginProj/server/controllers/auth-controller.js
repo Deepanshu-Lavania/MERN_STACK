@@ -12,6 +12,8 @@ const home = async (req, res) => {
 };
 const registers = async (req, res) => {//! req and res are part of frontend which handled by the postman / EchoApi
   try {
+    console.log(req.body);
+    
     const { username, email, phone, password } = req.body;
 
     const userExit = await User.findOne({ email: email });

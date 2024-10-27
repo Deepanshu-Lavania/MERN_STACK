@@ -1,0 +1,10 @@
+.header-container{
+    max-width: 140rem;
+    margin: 4rem 0rem;
+    display: flex;
+    justify-content: space-between;
+}
+ul{
+    display: flex;
+    gap:1.5rem;
+}
