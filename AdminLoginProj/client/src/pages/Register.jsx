@@ -13,6 +13,7 @@ export default function Register() {
 
 
   const navigate = useNavigate();
+  // const {storetokenInLS} = useContext(AuthContext);
   const {storetokenInLS}=useAuth();
 
 
