@@ -1,13 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
+import { useAuth } from "../store/auth";
 
 export default function About() {
+  const { userlogIn } = useAuth();
+
   return (
     <>
       <div className="section-hero">
         <div className="container grid grid-two-cols">
           <div className="hero-content">
-            <p>Welcome, Lavania Family</p>
+            <p>
+              Welcome {userlogIn ? <p><span style={{color:"red", textTransform:"capitalize"}}>{userlogIn.username}</span> to our website</p> : "to our website"}
+            </p>
             <h1>why Choose Us?</h1>
             <p>
               Expert Our team consists of expreienced IT professional whos are

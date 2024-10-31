@@ -1,24 +1,53 @@
-import React, { useState } from "react";
+import React, {useState } from "react";
+import axios from "axios";
+import { useAuth } from "../store/auth";
 
 export default function Contact() {
-  const [user, setuser] = useState({
+  const defaultContactFormData= {
     username: "",
     email: "",
     message: "",
-  });
+  }
+  const [user, setUser] = useState(defaultContactFormData);
+  const [userData ,setUserData]  =useState(true);
+
+  //automatically fill the field of contact form through authentication
+  const { userlogIn } = useAuth();
+  console.log("userLogIn data from contact page : ",userlogIn);
+
+  if (userData && userlogIn) {
+    setUser({
+      username:userlogIn.username,
+      email:userlogIn.email,
+      message:""
+    })
+    setUserData(false);
+  }
+  
   const handleInput = (event) => {
-    console.log(event.target);
+    // console.log(event.target);
 
     let name = event.target.name;
     let value = event.target.value;
-    setuser({
+    setUser({
       ...user,
       [name]: value,
     });
   };
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
     console.log(user);
+    try {
+      const response = await axios.post("http://localhost:8000/contact", user);
+      if (response.status==200) {
+        setUser(defaultContactFormData);
+        console.log("contact form data res : ",response.data);
+        alert("Message send successfully");
+      }
+    } catch (error) {
+      alert("contact form data not send");
+      console.log(error);
+    }
   };
   return (
     <>
@@ -90,12 +119,12 @@ export default function Contact() {
             </div>
           </div>
         </main>
-        <section className="mb-3" style={{marginTop:"2rem"}}>
+        <section className="mb-3" style={{ marginTop: "2rem" }}>
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d169847.0104076054!2d77.53414430329872!3d28.9871617115884!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390c64f457b66325%3A0x42faa83387a6be5e!2sMeerut%2C%20Uttar%20Pradesh!5e1!3m2!1sen!2sin!4v1729879061700!5m2!1sen!2sin"
             width="100%"
             height="200"
-            style={{border:"0"}}
+            style={{ border: "0" }}
             allowFullScreen=""
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"

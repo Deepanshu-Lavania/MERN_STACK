@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import React from "react";
 
 export const AuthContext = createContext(); //whearHouse
@@ -6,6 +6,8 @@ export const AuthContext = createContext(); //whearHouse
 export const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(localStorage.getItem("token"));
   console.log("token is : ",token);
+
+  const [userlogIn, setUserlogIn] = useState("");
   
   //provider
   const storetokenInLS = (serverToken) => {
@@ -23,8 +25,36 @@ export const AuthProvider = ({ children }) => {
     setToken("");
     return localStorage.removeItem("token");
   }
+
+
+  //* JWT AUTHENTICATION - to get the currently loggedIn user data
+
+  const userAuthentication = async()=>{
+    try {
+      const response  = await fetch("http://localhost:8000/user",{
+        method:"GET",
+        headers:{
+          Authorization:`Bearer ${token}`,
+        }
+      });
+      if (response.ok) {//get data from server 
+        const data = await response.json();
+        console.log("get authetic user data ",data.userData);
+        setUserlogIn(data.userData);
+      }
+    } catch (error) {
+      console.log("userData from Authentication error : ", error);
+    }
+  }
+
+  useEffect(() => {
+    if(token){
+      userAuthentication();
+    }
+  }, [token]); // Fetch user data when the token changes
+
   return (
-    <AuthContext.Provider value={{isLoggedIn, storetokenInLS, LogoutUser }}>
+    <AuthContext.Provider value={{isLoggedIn, storetokenInLS, LogoutUser,userlogIn }}>
       {/* If you used only one pair of curly braces ({ storetokenInLS }), JSX would interpret it as the function itself, not as an object */}
       {children}
     </AuthContext.Provider>

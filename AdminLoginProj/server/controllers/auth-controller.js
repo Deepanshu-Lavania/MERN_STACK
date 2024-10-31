@@ -61,4 +61,16 @@ const login = async (req, res) => {
     res.status(500).json({ msg: "Internal server error" }, err);
   }
 };
-module.exports = { home, registers, login };
+
+//* send  user data - UserData after verify the user
+const user=(req,res)=>{
+  try {
+    const userData = req.userDetail;//access req.userDetail from auth-middleware through frontend  so that we fill this data automatically in different pages 
+    console.log("userData after verification in auth-controller is : ",userData);
+    return res.status(200).json({userData});
+  } catch (error) {
+    console.log(`error from the user route ${error}`);
+  }
+}
+
+module.exports = { home, registers, login, user };
