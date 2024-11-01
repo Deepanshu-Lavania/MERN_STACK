@@ -16,6 +16,7 @@ const validate = (schema) => async (req, res, next) => {//!res , req are the par
       message:message,
       extraDetails: extraDetails
     }
+    console.log(Error);
     // res.status(400).json({ msg:err.errors[0].message });
     next(Error);
   }

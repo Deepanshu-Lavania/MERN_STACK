@@ -18,7 +18,7 @@ const registers = async (req, res) => {//! req and res are part of frontend whic
 
     const userExit = await User.findOne({ email: email });
     if (userExit) {
-      return res.status(400).json({ msg: "email already exists " });
+      return res.status(400).json({ Message: "E-mail already exists " });
     }
     const userCreated = await User.create({ username, email, phone, password }); //to create data in database
 
@@ -43,8 +43,10 @@ const login = async (req, res) => {
   try {
     const { email, password } = req.body;
     const userExit = await User.findOne({ email: email });
+    console.log("Backend login data present or not : ",userExit);
+    
     if (!userExit) {
-      return res.status(400).json({ message: "Invalid Credential" }); //don't go with specific like email doesn't exists
+      return res.status(422).json({ Message: "Invalid Credential" }); //don't go with specific like email doesn't exists
     }
     // const user = await bcrypt.compare(password, userExit.password);
     const user= await userExit.comparePassword(password);//instance mthod for compare password with exists user 

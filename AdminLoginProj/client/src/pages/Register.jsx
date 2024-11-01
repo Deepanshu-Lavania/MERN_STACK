@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios";
+// import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../store/auth";
 
@@ -11,11 +11,9 @@ export default function Register() {
     password: "",
   });
 
-
   const navigate = useNavigate();
   // const {storetokenInLS} = useContext(AuthContext);
-  const {storetokenInLS}=useAuth();
-
+  const { storetokenInLS } = useAuth();
 
   const handleInput = (event) => {
     // console.log(event.target);
@@ -32,29 +30,27 @@ export default function Register() {
     // console.log(user);
     try {
       //! header , body in HTTP request with payloads :
-      /* const response = await fetch("http://localhost:8000/register",{
-        method:"POST",
-        headers:{
-          "Content-Type":"application/json",
+      const response = await fetch("http://localhost:8000/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
-        body:JSON.stringify(user),
-      })
-      console.log(response); */
+        body: JSON.stringify(user),
+      });
+      // console.log("response through register page is : ",response);
       //! send data using axios
-      const response = await axios.post("http://localhost:8000/register", user);
-      // console.log(response);
-      if (response.status==200) {
+      // const response = await axios.post("http://localhost:8000/register", user);
+      // console.log("register respose is : ",response);
+      const res_data = await response.json();
+      console.log("response of frontend through register page is : ", res_data);
+      if (response.ok) {
         alert("Registeration Successful");
-        console.log(response.data);
-
-        const res_data = response.data;
         storetokenInLS(res_data.token);
-        
-        // localStorage.setItem("token",res_data.token);
+
         setuser({ username: "", email: "", phone: "", password: "" });
-        navigate("/login");
-      }else{
-        alert("Invalid Credentials")
+        navigate("/");
+      } else {
+        alert(res_data.ExtraDetails ? res_data.ExtraDetails : res_data.Message);
       }
     } catch (error) {
       console.log("register Frontend Error : ", error.response.data);

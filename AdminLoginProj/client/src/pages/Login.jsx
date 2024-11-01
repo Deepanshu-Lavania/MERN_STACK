@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import axios from "axios";
+// import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../store/auth";
-
 
 export default function login() {
   const [user, setuser] = useState({
@@ -11,7 +10,7 @@ export default function login() {
   });
 
   const navigate = useNavigate();
-  const {storetokenInLS}=useAuth();
+  const { storetokenInLS } = useAuth();
 
   const handleInput = (event) => {
     // console.log(event.target);
@@ -28,21 +27,33 @@ export default function login() {
     // console.log(user);
     //! send data using axios
     try {
-      const response = await axios.post("http://localhost:8000/login", user);
-      console.log(response.data.msg);
-      if (response.status==200) {
-        alert("login Scucessful");
+      const response = await fetch("http://localhost:8000/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(user),
+      });
+      // const response = await axios.post("http://localhost:8000/login", user);
+      console.log(response);
 
-        const res_data = response.data;
+      const res_data = await response.json();
+      console.log("response of frontend through login page is : ", res_data);
+      if (response.ok) {
+        alert("login Successful");
         storetokenInLS(res_data.token);
-
         setuser({ email: "", password: "" });
         navigate("/");
-        // deepanshu631088@gmail.com
-      }else{
-        alert("Invalid Credentials")
+      } else {
+        if (res_data.ExtraDetails) {
+          alert(res_data.ExtraDetails);
+        }else if(res_data.status==400){
+          alert(res_data.Message);
+        }else{
+          alert("Enter Valid Credentials")
+        }
       }
-    } catch (error) {
+    } catch (error) { 
       console.log(error.response.data.message);
     }
   };
