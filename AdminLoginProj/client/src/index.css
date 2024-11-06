@@ -8,6 +8,38 @@ body{
     display: grid;
     place-items: center;
 }
+body tr{
+    display: grid;
+    grid-template-columns: 2fr 3fr 1fr 1fr 1fr;
+    align-items: center;
+    text-align: center;
+    gap: 5px;
+    box-shadow: 0 0.2rem 0 grey;
+    margin-bottom: 10px;
+    border-bottom: 4px solid transparent;
+    & :last-child{
+        box-shadow: none;
+    }
+}
+table{
+    margin-top: 1rem;
+    background: #fff;
+    box-shadow: 0px 7px 10px 0px;
+    border-collapse: collapse;
+    border-radius: 1rem;
+}
+thead tr th{
+    padding: 0.5rem 0rem;
+    font-size: 1.3rem;
+    letter-spacing:0.1rem;
+}
+td{
+    font-size: 1.2rem;
+    padding:0.5rem;
+    text-align: center;
+    color:black;
+    height: auto;
+}
 .app-container{
     width: 70vw;
 }

@@ -6,6 +6,7 @@ const app = express(); //fucntion call
 const authRoute = require("./router/auth-router");
 const contactRoute = require("./router/contact-router");
 const serviceRouter = require("./router/service-router");
+const adminRouter = require("./router/admin-router");
 const connectDb = require("./utils/db");
 const errorMiddleware = require("./middleware/error-middleware");
 
@@ -24,6 +25,9 @@ app.use(express.json());//! middleware for adding data in database
 app.use("/", authRoute);//! Router middleware
 app.use("/",contactRoute);
 app.use("/",serviceRouter);
+
+//let's define admin route
+app.use("/admin",adminRouter);
 
 const PortNum =process.env.PORT;
 // app.listen(PORT, () => {

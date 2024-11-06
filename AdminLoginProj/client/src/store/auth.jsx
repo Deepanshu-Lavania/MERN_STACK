@@ -10,6 +10,7 @@ export const AuthProvider = ({ children }) => {
 
   const [userlogIn, setUserlogIn] = useState("");
   const [servicedata, setServicesData] = useState([]);
+  const authorizationToken= `Bearer ${token}`;
 
   //provider
   const storetokenInLS = (serverToken) => {
@@ -35,7 +36,8 @@ export const AuthProvider = ({ children }) => {
       const response = await fetch("http://localhost:8000/user", {
         method: "GET",
         headers: {
-          Authorization: `Bearer ${token}`,
+          // Authorization: `Bearer ${token}`,
+          Authorization:authorizationToken,
         },
       });
       if (response.ok) {
@@ -73,7 +75,7 @@ export const AuthProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider
-      value={{ isLoggedIn, storetokenInLS, LogoutUser, userlogIn,servicedata }}
+      value={{ isLoggedIn, storetokenInLS, LogoutUser, userlogIn,servicedata, authorizationToken }}
     >
       {/* If you used only one pair of curly braces ({ storetokenInLS }), JSX would interpret it as the function itself, not as an object */}
       {children}
