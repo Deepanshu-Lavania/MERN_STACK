@@ -13,6 +13,11 @@ router
   .route("/users/:id")
   .get(authmiddleware, adminMiddleware, adminControllerData.getUserById);
 
+/* update data from database */
+router
+  .route("/users/update/:id")
+  .patch(authmiddleware, adminMiddleware, adminControllerData.updateUserById);
+
 /* Delete user data from database */
 router
   .route("/users/delete/:id")

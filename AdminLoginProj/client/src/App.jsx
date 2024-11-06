@@ -34,6 +34,7 @@ export default function App() {
               <Route path="user" element={<AdminUsers />} />
               <Route path="users/:id/edit" element={<UpdateData/>}/>
               <Route path="contact" element={<AdminContacts />} />
+              <Route path="*" element={<Error />} />
             </Route>
           </Routes>
         </div>

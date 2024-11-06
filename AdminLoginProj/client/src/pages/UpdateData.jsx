@@ -13,6 +13,7 @@ export default function UpdateData() {
   const {authorizationToken} = useAuth();
   console.log("params id is : ",params);
   
+  //to access data from database
   const getSingleUserdata = async () => {
     try {
       const response = await fetch(
@@ -34,11 +35,41 @@ export default function UpdateData() {
 
   const handleInput = (e) => {
     console.log(e.target.value);
+    const name=e.target.name;
+    const value = e.target.value
+    setData({
+      ...data,
+      [name]:value,
+    })
   };
   //update single user data
   useEffect(() => {
     getSingleUserdata();
   }, []);
+  /* to update data */
+  const handleSubmit=async(e)=>{
+    e.preventDefault();
+    try {
+      const response = await fetch(
+        `http://localhost:8000/admin/users/update/${params.id}`,
+        {
+          method: "PATCH",
+          headers: {
+            "Content-Type":"application/json",//! it is used for post the data but also used for update as well
+            Authorization: authorizationToken,
+          },
+          body:JSON.stringify(data)
+        }
+      );
+      if (response.ok) {
+        alert("updates successfully")
+      }else{
+        alert("not updated")
+      }
+    } catch (error) {
+      console.log("update data ",error);
+    }
+  }
   return (
     <>
       <section>
@@ -48,7 +79,7 @@ export default function UpdateData() {
               <div className="registration-form">
                 <h1 className="main-heading mb-3">registration form</h1>
                 <br />
-                <form>
+                <form onSubmit={handleSubmit}>
                   <div>
                     <label htmlFor="username">username</label>
                     <input
