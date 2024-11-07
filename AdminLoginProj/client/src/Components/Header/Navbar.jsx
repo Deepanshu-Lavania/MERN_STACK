@@ -26,7 +26,7 @@ export default function Navbar() {
                 <NavLink to="/contact">Contact</NavLink>
               </li>
               <li>
-                <NavLink to="/service">Service</NavLink>
+                <NavLink to="/services">Service</NavLink>
               </li>
               {isLoggedIn ? (
                 <li>

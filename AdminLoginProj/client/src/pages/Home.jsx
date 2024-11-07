@@ -67,7 +67,7 @@ export default function Home() {
               <NavLink to="/contact">
                 <button className="btn">connect now</button>
               </NavLink>
-              <NavLink to="/service">
+              <NavLink to="/services">
                 <button className="btn">learn more </button>
               </NavLink>
             </div>
