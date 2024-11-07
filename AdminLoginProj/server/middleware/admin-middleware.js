@@ -5,8 +5,11 @@ const adminMiddleware = (req,res,next)=>{
         if (!adminRole) {
             return res.status(403).json({Message:"Access denied. User is not an admin"})
         }
-        // res.status(200).json({msg:req.userDetail.isAdmin});
-        next();//call next route in router
+
+        // res.status(200).json({ isAdmin: true, Message: 'User is an admin' });
+
+
+        next();// Proceed to the next middleware if the user is an admin
     } catch (error) {
         next(error)
     }

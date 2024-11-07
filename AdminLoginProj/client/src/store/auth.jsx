@@ -12,6 +12,8 @@ export const AuthProvider = ({ children }) => {
   const [servicedata, setServicesData] = useState([]);
   const authorizationToken= `Bearer ${token}`;
 
+  /* To get data after loading */
+  const [isLoading,setIsLoading] = useState(true);
   //provider
   const storetokenInLS = (serverToken) => {
     // return localStorage.setItem("token",serverToken);   //! OR
@@ -33,6 +35,7 @@ export const AuthProvider = ({ children }) => {
 
   const userAuthentication = async () => {
     try {
+      setIsLoading(true);
       const response = await fetch("http://localhost:8000/user", {
         method: "GET",
         headers: {
@@ -45,6 +48,9 @@ export const AuthProvider = ({ children }) => {
         const data = await response.json();
         console.log("get authetic user data ", data.userData);
         setUserlogIn(data.userData);
+        setIsLoading(false);
+      }else{
+        setIsLoading(false);
       }
     } catch (error) {
       console.log("userData from Authentication error : ", error);
@@ -75,7 +81,7 @@ export const AuthProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider
-      value={{ isLoggedIn, storetokenInLS, LogoutUser, userlogIn,servicedata, authorizationToken }}
+      value={{ isLoggedIn, storetokenInLS, LogoutUser, userlogIn,servicedata, authorizationToken , isLoading}}
     >
       {/* If you used only one pair of curly braces ({ storetokenInLS }), JSX would interpret it as the function itself, not as an object */}
       {children}
