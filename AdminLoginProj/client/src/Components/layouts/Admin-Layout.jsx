@@ -34,7 +34,7 @@ export default function AdminLayout() {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/service">
+                <NavLink to="/services">
                   <FaListUl /> Services
                 </NavLink>
               </li>

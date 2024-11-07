@@ -60,6 +60,7 @@ const deleteUsersById = async (req, res) => {
   }
 };
 
+/* To access contact data */
 const getAllContactData = async (req, res) => {
   try {
     const adminContacts = await Contact.find();
@@ -74,6 +75,7 @@ const getAllContactData = async (req, res) => {
   }
 };
 
+/* To delete Contact data */
 const deleteContactById = async (req, res) => {
   try {
     const contactId = req.params.id;
@@ -89,6 +91,8 @@ const deleteContactById = async (req, res) => {
     next(error);
   }
 };
+
+
 
 module.exports = {
   getAllUsers,
