@@ -8,10 +8,10 @@ export default function Navbar() {
   
   console.log("isLoggedIn:", isLoggedIn);
   console.log("Admin Layout:", userlogIn);
-
+/* 
   if (isLoading) {
     return <h1>Loading...</h1>;
-  }
+  } */
 
   // Helper functions to render links based on the user's state
   const renderAuthLinks = () => {
