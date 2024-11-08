@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useAuth } from "../store/auth";
+import {toast } from 'react-toastify';
 
 export default function AdminContacts() {
   const { authorizationToken } = useAuth();
@@ -34,7 +35,7 @@ export default function AdminContacts() {
       console.log(`users after delete : ${data}`);
       if (response.ok) {
         getAllContactData();
-        alert("Data delete successfully");
+        toast.success("Data delete successfully");
       }
     } catch (error) {
       console.log(error);

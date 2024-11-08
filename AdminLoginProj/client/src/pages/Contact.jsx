@@ -1,6 +1,9 @@
 import React, {useState } from "react";
 import axios from "axios";
 import { useAuth } from "../store/auth";
+import {toast } from 'react-toastify';
+
+
 
 export default function Contact() {
   const defaultContactFormData= {
@@ -42,10 +45,10 @@ export default function Contact() {
       if (response.status==200) {
         setUser(defaultContactFormData);
         console.log("contact form data res : ",response.data);
-        alert("Message send successfully");
+        toast.success("Message send successfully");
       }
     } catch (error) {
-      alert("contact form data not send");
+      toast.error("contact form data not send");
       console.log(error);
     }
   };

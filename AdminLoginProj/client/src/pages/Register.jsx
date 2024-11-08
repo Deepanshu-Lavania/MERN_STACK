@@ -2,6 +2,7 @@ import React, { useState } from "react";
 // import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../store/auth";
+import {toast } from 'react-toastify';
 
 export default function Register() {
   const [user, setuser] = useState({
@@ -44,13 +45,13 @@ export default function Register() {
       const res_data = await response.json();
       console.log("response of frontend through register page is : ", res_data);
       if (response.ok) {
-        alert("Registeration Successful");
+        toast.success("Registeration Successful");
         storetokenInLS(res_data.token);
 
         setuser({ username: "", email: "", phone: "", password: "" });
         navigate("/");
       } else {
-        alert(res_data.ExtraDetails ? res_data.ExtraDetails : res_data.Message);
+        toast.error(res_data.ExtraDetails ? res_data.ExtraDetails : res_data.Message);
       }
     } catch (error) {
       console.log("register Frontend Error : ", error.response.data);

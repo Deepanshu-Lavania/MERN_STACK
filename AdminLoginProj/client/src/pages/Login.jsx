@@ -2,6 +2,8 @@ import React, { useState } from "react";
 // import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../store/auth";
+import {toast } from 'react-toastify';
+
 
 export default function login() {
   const [user, setuser] = useState({
@@ -40,17 +42,17 @@ export default function login() {
       const res_data = await response.json();
       console.log("response of frontend through login page is : ", res_data);
       if (response.ok) {
-        alert("login Successful");
+        toast.success("login Successful");
         storetokenInLS(res_data.token);
         setuser({ email: "", password: "" });
         navigate("/");
       } else {
         if (res_data.ExtraDetails) {
-          alert(res_data.ExtraDetails);
+          toast.error(res_data.ExtraDetails);
         }else if(res_data.status==400){
-          alert(res_data.Message);
+          toast.error(res_data.Message);
         }else{
-          alert("Enter Valid Credentials")
+          toast.error("Enter Valid Credentials")
         }
       }
     } catch (error) { 
