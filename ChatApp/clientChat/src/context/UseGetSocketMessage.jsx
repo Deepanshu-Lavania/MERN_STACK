@@ -10,13 +10,16 @@ export default function UseGetSocketMessage() {
 
   useEffect(() => {
     const handleNewMessage = (newMessage) => {
-      const notification = new Audio(sound);
-      notification.play();      
-      setMessage((prevMessages) => [...prevMessages, newMessage]);
-    }
-    socket.on("newMessage",handleNewMessage);
-    console.log("all message are through UseGetSocketMessage.jsx is",message );
-    return () => socket.off("newMessage",handleNewMessage);
+      console.log("New message received: ", newMessage);
+      setMessage((prevMessages) => {
+        console.log("Previous messages: ", prevMessages);
+        return [...prevMessages, newMessage];
+      });
+    };
+    socket.on("newMessage", handleNewMessage);
+    console.log("================Socket:================ ", socket);
+    console.log("all message are through UseGetSocketMessage.jsx is", message);
+    return () => socket.off("newMessage", handleNewMessage);
   }, [socket, message, setMessage]);
 }
 

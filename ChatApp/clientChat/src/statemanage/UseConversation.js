@@ -5,5 +5,12 @@ export const useConversation = create((set) => ({
   setSelectedConversation: (selectedConversation) =>
     set({ selectedConversation }),
   message: [],
-  setMessage: (message) => set({ message }),
+  // setMessage: (message) => set({ message }),
+  setMessage: (updater) =>
+    set((state) => ({
+      message:
+        typeof updater === "function" // Check if the updater is a function
+          ? updater(state.message) // If yes, apply it to the current state
+          : updater, // Otherwise, replace the state directly
+    })),
 }));

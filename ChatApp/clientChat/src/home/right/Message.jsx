@@ -2,7 +2,9 @@ import React from "react";
 
 export default function Message({ message, previousMessage }) {
   const getLoggedInUserId = JSON.parse(localStorage.getItem("messenger"));
-  const itsMe = message.senderId === getLoggedInUserId.user._id;
+  const itsMe = message?.senderId === getLoggedInUserId?.user?._id;
+  console.log("======= itsMe ========", itsMe);
+  
   const chatAlignment = itsMe ? "chat-end" : "chat-start";
   const chatBubbleColor = itsMe ? "bg-blue-500" : "";
   // console.log("send message in Message.jsx : ", message);
@@ -33,6 +35,7 @@ export default function Message({ message, previousMessage }) {
     hour: "2-digit",
     minute: "2-digit",
   });
+  console.log("formattedTime is ========> ", formattedTime);
 
   return (
     <>
