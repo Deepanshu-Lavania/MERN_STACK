@@ -1,28 +1,26 @@
 require("dotenv").config();
 const express = require("express");
-const dotenv = require("dotenv");
 const connectDb = require("./utils/db");
 const userRoute = require("./router/user-route");
-var cookieParser = require('cookie-parser');
-const cors= require("cors");
-const app = express();
 const messageRoute = require("./router/message-route");
+const cookieParser = require("cookie-parser");
+const cors = require("cors");
+const { app, server } = require("./SocketIO/socket"); // Import app and server
 
-// Ensure the cookie-parser middleware is set up in your Express app if cookies are being handled. Without it, cookies may not work as expected.
-app.use(cookieParser())
-//cors policy
+// Middleware setup
+app.use(cookieParser());
 app.use(cors());
-// Middleware to parse JSON request bodies
 app.use(express.json());
 
+// Routes
+app.use("/api/user", userRoute);
+app.use("/api/message", messageRoute);
 
-const port = 8000 || process.env.PORT;
+const port = process.env.PORT || 8000;
 
-app.use("/api/user",userRoute);
-app.use("/api/message",messageRoute);
-
+// Connect to DB and start the server
 connectDb().then(() => {
-  app.listen(port, () => {
-    console.log(`server is running at http://localhost:${port}`);
+  server.listen(port, () => {
+    console.log(`Server running using socket.io server at http://localhost:${port}`);
   });
 });
