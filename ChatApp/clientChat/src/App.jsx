@@ -8,7 +8,7 @@ import { useAuth } from "./context/AuthProvider";
 import { Routes, Route, Navigate } from "react-router-dom";
 
 export default function App() {
-  const [authUser, setAuthUser] = useAuth();
+  const [authUser] = useAuth();
   console.log("authentic user data is : ", authUser);
 
   return (

@@ -56,7 +56,9 @@ export default function login() {
         }
       }
     } catch (error) { 
-      console.log(error.response.data.message);
+      console.log("login error is " ,error);
+      
+      // console.log(error.response.data.message);
     }
   };
   return (

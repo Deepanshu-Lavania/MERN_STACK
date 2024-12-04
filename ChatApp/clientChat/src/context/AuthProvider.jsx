@@ -7,6 +7,7 @@ export const AuthContext = createContext(); // Acts as the central store
 export const AuthProvider = ({ children }) => {
   // Fetch initial user state from Cookies or Local Storage
   const initialUserState =Cookies.get("jwt") || localStorage.getItem("messenger");
+  console.log("initialUserState data is : ", Cookies.get("jwt"));
 
   let parsedUser = undefined;
   if (initialUserState) {
