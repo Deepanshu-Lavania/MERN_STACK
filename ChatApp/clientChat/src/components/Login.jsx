@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useAuth } from "../context/AuthProvider";
 import { Link } from "react-router-dom";
+import {toast} from 'react-toastify';
 
 export default function Login() {
   const [authUser, setAuthUser] = useAuth();
@@ -25,14 +26,14 @@ export default function Login() {
           response.data
         );
         if (response.data) {
-          alert("login Successfull ");
+          toast.success("login Successfull ");
         }
         localStorage.setItem("messenger", JSON.stringify(response.data));
         setAuthUser(response.data);
       })
       .catch((error) => {
         if (error.response) {
-          alert("axios error : " + error.response.data.message);
+          toast.error("axios error : " + error.response.data.message);
         }
       });
   };

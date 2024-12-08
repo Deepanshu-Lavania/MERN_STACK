@@ -46,7 +46,7 @@ export default function Users() {
               scrollbarWidth: "none",
               msOverflowStyle: "none",
             }}
-            className="h-[90vh] sm:h-[75vh]"
+            className="flex-grow"
           >
             {allUsers.map((user, index) => (
               <User key={index} user={user} />

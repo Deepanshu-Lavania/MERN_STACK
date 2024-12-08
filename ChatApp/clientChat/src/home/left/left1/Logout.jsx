@@ -10,13 +10,13 @@ export default function Logout() {
   const [loading, setLoading] = useState(false);
   const handleLogout = async () => {
     setLoading(true);
-    const logConfirm=confirm("Do you want to logout ? ")
+    const logConfirm=confirm("Do you want to logout ? ");
    if (logConfirm) {
     try {
       const res = await axios.post("/api/user/logout");
       localStorage.removeItem("messenger");
       Cookies.remove("jwt");
-      alert("Logout Successfully");
+      // alert("Logout Successfully");
       if (setLoading) {
         setLoading(false);
         window.location.reload();

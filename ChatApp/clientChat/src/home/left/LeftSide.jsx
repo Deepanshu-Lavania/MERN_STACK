@@ -5,12 +5,15 @@ import Users from "./Users";
 export default function LeftSide() {
   return (
     <>
-        <div className="flex flex-col my-5 sm:my-1">
+    <div className="flex h-screen flex-col">
+      <div className="flex flex-col my-5 sm:my-1">
         <h1 className="font-bold text-2xl p-1 px-7">Chats</h1>
         <Search />
-        </div>
-        <hr />
-        <Users></Users>
+      </div>
+      <hr />
+      <Users></Users>
+      <div className="h-[1vh]"></div>
+    </div>
     </>
   );
 }

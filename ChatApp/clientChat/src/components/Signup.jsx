@@ -3,6 +3,8 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useAuth } from "../context/AuthProvider";
 import { Link } from "react-router-dom";
+import {toast} from 'react-toastify';
+
 
 export default function Signup() {
     const [authUser, setAuthUser] = useAuth(); // Global state from AuthContext
@@ -29,7 +31,7 @@ export default function Signup() {
       .then((response) => {
         console.log("axios get response through backend is : ", response.data);
         if (response.data) {
-          alert("Signup successful !");
+          toast.success("Signup successful !");
         }
         localStorage.setItem("messenger", JSON.stringify(response.data));
         setAuthUser(response.data);
@@ -39,7 +41,7 @@ export default function Signup() {
       })
       .catch((error) => {
         if (error.response) {
-          alert("axios error : " + error.response.data.message);
+          toast.error("axios error : " + error.response.data.message);
         }
       });
   };
