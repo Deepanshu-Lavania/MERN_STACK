@@ -18,7 +18,7 @@ export default function App() {
           path="/"
           element={
             authUser ? (
-              <div className="flex  h-screen">
+              <div className="flex w-full  h-screen">
                 <Logout></Logout>
                 <LeftSide></LeftSide>
                 <RightSide></RightSide>

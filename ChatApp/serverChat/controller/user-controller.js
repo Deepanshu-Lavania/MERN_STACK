@@ -105,8 +105,8 @@ const Logout = async (req, res) => {
 const getUserProfile=async( req,res)=>{
     try {
         //we have to do in such that registered user will not show so we have to use middleware
-        const loggedInUser = req.user._id;
-        console.log("loggedInUser is "+loggedInUser);
+        const loggedInUser = req.user._id;//req.user from authorisedMiddleware 
+        console.log("loggedInUser Id is "+loggedInUser);
         
         const filteredUsers =await User.find({_id:{$ne:loggedInUser}}).select("-password");
         // const filteredUsers =await User.find().select("-password");

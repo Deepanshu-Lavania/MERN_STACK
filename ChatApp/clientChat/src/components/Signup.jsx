@@ -29,7 +29,7 @@ export default function Signup() {
       .then((response) => {
         console.log("axios get response through backend is : ", response.data);
         if (response.data) {
-          alert("Signup successful! You can now log in. ");
+          alert("Signup successful !");
         }
         localStorage.setItem("messenger", JSON.stringify(response.data));
         setAuthUser(response.data);
@@ -62,7 +62,7 @@ export default function Signup() {
             Messenger
           </h1>
           <h2 className="text-2xl items-center">
-            Create a new{" "}
+            Create a new
             <span className="text-blue-600 font-semibold">Account</span>
           </h2>
           {/* username */}
@@ -175,7 +175,7 @@ export default function Signup() {
               className="text-white cursor-pointer bg-blue-600 w-full rounded-lg py-2"
             />
             <p>
-              Have any Account?{" "}
+              Have any Account?
               <Link to={"/login"} className="text-blue-500 underline cursor-pointer">
                 Login
               </Link>

@@ -3,29 +3,24 @@ import React from "react";
 export default function Message({ message, previousMessage }) {
   const getLoggedInUserId = JSON.parse(localStorage.getItem("messenger"));
   const itsMe = message?.senderId === getLoggedInUserId?.user?._id;
-  console.log("======= itsMe ========", itsMe);
-  
+  // console.log("======= itsMe ========", itsMe);
+
   const chatAlignment = itsMe ? "chat-end" : "chat-start";
   const chatBubbleColor = itsMe ? "bg-blue-500" : "";
   // console.log("send message in Message.jsx : ", message);
 
-  // Format current message's date
-  const currentDate = new Date(message.createdAt).toLocaleDateString([], {
+  const getDate = new Date(message.createdAt).toLocaleDateString([], {
     year: "numeric",
     month: "short",
     day: "numeric",
   });
+  // Format current message's date
+  const currentDate = getDate;
 
   //* Format previous message's date (if it exists)
   // console.log("previousMessage is : ", previousMessage);
 
-  const previousDate = previousMessage
-    ? new Date(previousMessage.createdAt).toLocaleDateString([], {
-        year: "numeric",
-        month: "short",
-        day: "numeric",
-      })
-    : null;
+  const previousDate = previousMessage ? getDate : null;
 
   // Show date only if it's the first message of the day
   const showDate = !previousMessage || currentDate !== previousDate;
@@ -35,7 +30,7 @@ export default function Message({ message, previousMessage }) {
     hour: "2-digit",
     minute: "2-digit",
   });
-  console.log("formattedTime is ========> ", formattedTime);
+  // console.log("formattedTime is ========> ", formattedTime);
 
   return (
     <>

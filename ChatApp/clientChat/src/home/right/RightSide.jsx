@@ -19,7 +19,7 @@ export default function RightSide() {
 
   return (
     <>
-      <div className="w-[70%] bg-slate-900 text-white">
+      <div className="w-full bg-slate-900 text-white">
         <div>
           {!selectedConversation ? (
             <Nochat />

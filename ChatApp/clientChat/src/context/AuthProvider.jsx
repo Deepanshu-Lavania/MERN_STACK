@@ -8,6 +8,8 @@ export const AuthProvider = ({ children }) => {
   // Fetch initial user state from Cookies or Local Storage
   const initialUserState =Cookies.get("jwt") || localStorage.getItem("messenger");
   console.log("initialUserState data is : ", Cookies.get("jwt"));
+  console.log("initialUserState through cookie and localStorage is : ",initialUserState);
+  
 
   let parsedUser = undefined;
   if (initialUserState) {
@@ -17,7 +19,6 @@ export const AuthProvider = ({ children }) => {
       console.error("Failed to parse user data:", error);
     }
   }
-
   // Manage auth state
   const [authUser, setAuthUser] = useState(parsedUser);
 

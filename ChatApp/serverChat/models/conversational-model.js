@@ -2,12 +2,13 @@ const { Schema, model } = require("mongoose");
 const User = require("./user-model");
 const Message = require("./message-model");
 
+
 const conversationSchema = new Schema(
   {
     participants: [
       {
         type: Schema.Types.ObjectId,
-        ref: User,
+        ref:User,
       },
     ],
     messages: [

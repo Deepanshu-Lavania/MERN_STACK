@@ -11,6 +11,10 @@ export default function UseGetSocketMessage() {
   useEffect(() => {
     const handleNewMessage = (newMessage) => {
       console.log("New message received: ", newMessage);
+      const notification = new Audio(sound);
+        notification.play().catch((err) => {
+          console.warn("Error playing notification sound:", err);
+        });
       setMessage((prevMessages) => {
         console.log("Previous messages: ", prevMessages);
         return [...prevMessages, newMessage];

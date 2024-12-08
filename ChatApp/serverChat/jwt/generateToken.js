@@ -9,7 +9,7 @@ const createToken = (userId, res) => {
     httpOnly: true,
     secure: false, // Disable in development
     sameSite: "strict", // Allow cross-origin requests
-    maxAge:1*24*60*60*1000
+    maxAge: 1 * 24 * 60 * 60 * 1000,
   });
 };
 module.exports = createToken;

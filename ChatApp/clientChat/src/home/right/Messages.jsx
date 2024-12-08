@@ -4,7 +4,6 @@ import useGetMessage from "../../context/useGetMessage";
 import Loading from "../../components/Loading";
 import UseGetSocketMessage from "../../context/UseGetSocketMessage";
 
-
 export default function Messages() {
   const { message, loading } = useGetMessage();
   console.log("message is : ", message);

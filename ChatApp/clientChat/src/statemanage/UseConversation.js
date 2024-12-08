@@ -3,7 +3,7 @@ import { create } from "zustand";
 export const useConversation = create((set) => ({
   selectedConversation: null,
   setSelectedConversation: (selectedConversation) =>
-    set({ selectedConversation }),
+    set({ selectedConversation }), // js creation of fat arrow function with object
   message: [],
   // setMessage: (message) => set({ message }),
   setMessage: (updater) =>

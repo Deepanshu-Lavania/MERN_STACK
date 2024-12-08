@@ -6,6 +6,8 @@ export default function useGetAllUsers() {
   const [allUsers, setAllUsers] = useState([]);
   const [loading, setLoading] = useState(false);
 
+
+  //! To get data from DataBase
   useEffect(() => {
     const getUsers = async () => {
       setLoading(true);

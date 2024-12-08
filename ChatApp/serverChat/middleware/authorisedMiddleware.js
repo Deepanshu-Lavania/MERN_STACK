@@ -3,7 +3,7 @@ const jsonwebtoken = require("jsonwebtoken");
 
 const authorisedMiddleware = async (req, res, next) => {
   try {
-    const token = req.cookies.jwt;
+    const token = req.cookies.jwt;// Extract the token from cookies by using postman
     console.log("Token from cookies: ", token);
     if (!token) {
       return res.status(401).json({ message: "user Not authorized" });
