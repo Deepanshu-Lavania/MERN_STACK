@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import { BiLogOutCircle } from "react-icons/bi";
+import { MdChat } from "react-icons/md";
 import axios from "axios";
 import Cookies from "js-cookie";
+import { useConversation } from "../../../statemanage/UseConversation";
 
 export default function Logout() {
+  const { selectedConversation, setSelectedConversation } = useConversation();
   const [loading, setLoading] = useState(false);
   const handleLogout = async () => {
     setLoading(true);
@@ -20,14 +23,20 @@ export default function Logout() {
       console.log(error);
     }
   };
+  const handleBackBtn = () => {
+    window.history.back();
+  };
   return (
     <>
-      <div className=" bg-slate-900 text-white flex flex-col justify-end">
-        <div className="align-bottom">
-          <button onClick={handleLogout}>
-            <BiLogOutCircle className="text-4xl mx-1 p-1 hover:bg-gray-600 rounded-lg duration-300" />
-          </button>
-        </div>
+      <div className="align-top">
+        <button onClick={handleBackBtn} className={`${selectedConversation?"block":"hidden"} sm:hidden `}>
+          <MdChat className="text-4xl mx-1 p-1 my-3 hover:bg-gray-600 rounded-lg duration-300"/>
+        </button>
+      </div>
+      <div className="align-bottom">
+        <button onClick={handleLogout}>
+          <BiLogOutCircle className="text-4xl mx-1 p-1 hover:bg-gray-600 rounded-lg duration-300" />
+        </button>
       </div>
     </>
   );
