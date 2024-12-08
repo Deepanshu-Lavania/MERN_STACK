@@ -19,17 +19,19 @@ export default function RightSide() {
 
   return (
     <>
-    <div>
-          {!selectedConversation ? (
-            <Nochat />
-          ) : (
-            <>
-              <Chatuser />
-              <Messages />
-              <Type />
-            </>
-          )}
-        </div>
+      
+        {!selectedConversation ? (
+          <Nochat />
+        ) : (
+          <>
+          <div className="flex flex-col h-screen">
+            <Chatuser />
+            <Messages />
+            <Type />
+          </div>
+          </>
+        )}
+      
     </>
   );
 }
@@ -40,7 +42,11 @@ const Nochat = () => {
     <>
       <div className="flex h-screen items-center justify-center">
         <h1 className="text-center font-semibold text-xl ">
-          Welcome <span className="font-bold text-2xl text-red-400">{authUser.user.name}</span> ,
+          Welcome{" "}
+          <span className="font-bold text-2xl text-red-400">
+            {authUser.user.name}
+          </span>{" "}
+          ,
           <br />
           Select a chat to start messaging.
         </h1>

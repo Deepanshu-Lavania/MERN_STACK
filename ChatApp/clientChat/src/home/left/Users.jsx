@@ -1,6 +1,7 @@
 import React, { useEffect} from "react";
 import User from "./User";
 import GetAllUsers from "../../context/GetAllUsers";
+import Loading from "../../components/Loading";
 
 
 export default function Users() {
@@ -11,7 +12,7 @@ export default function Users() {
  
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <Loading/>;
   }
 
   return (
@@ -41,11 +42,11 @@ export default function Users() {
       </div> */}
       <div
             style={{
-              maxHeight: "calc(87vh)",
               overflowY: "auto",
               scrollbarWidth: "none",
               msOverflowStyle: "none",
             }}
+            className="h-[90vh] sm:h-[75vh]"
           >
             {allUsers.map((user, index) => (
               <User key={index} user={user} />

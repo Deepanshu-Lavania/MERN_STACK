@@ -31,11 +31,12 @@ export default function Messages() {
       <UseGetSocketMessage />
       <div
         style={{
-          height: "calc(89vh - 15vh)",
+          // height: "calc(89vh - 15vh)",
           overflowY: "auto",
           scrollbarWidth: "none",
           msOverflowStyle: "none",
         }}
+        className="flex-grow"
       >
         {/* <Message />
         <Message /> */}

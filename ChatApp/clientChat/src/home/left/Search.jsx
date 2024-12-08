@@ -22,7 +22,7 @@ export default function Search() {
     }
   };
   return (
-    <div className="h-[8vh] sm:h-[10vh]">
+    <div className=" mb-5">
       <div className="px-4 py-4">
         <form onSubmit={handleSubmit}>
           <div className="flex gap-2">

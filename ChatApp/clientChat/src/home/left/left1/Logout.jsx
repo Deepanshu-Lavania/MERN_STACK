@@ -10,6 +10,8 @@ export default function Logout() {
   const [loading, setLoading] = useState(false);
   const handleLogout = async () => {
     setLoading(true);
+    const logConfirm=confirm("Do you want to logout ? ")
+   if (logConfirm) {
     try {
       const res = await axios.post("/api/user/logout");
       localStorage.removeItem("messenger");
@@ -22,6 +24,7 @@ export default function Logout() {
     } catch (error) {
       console.log(error);
     }
+   }
   };
   const handleBackBtn = () => {
     window.history.back();

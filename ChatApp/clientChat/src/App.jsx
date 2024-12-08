@@ -30,10 +30,10 @@ export default function App() {
                 <div className=" bg-slate-900 text-white flex flex-col justify-between py-2">
                   <Logout />
                 </div>
-                <div className={`${selectedConversation ? "hidden":"w-full"} bg-black text-white sm:w-[30%] sm:block`}>
+                <div className={`${selectedConversation ? "hidden":"w-full"} bg-black text-white flex flex-col sm:w-[30%] sm:block`}>
                   <LeftSide />
                 </div>
-                <div className={`${selectedConversation ? "w-full":"hidden"} bg-slate-900 text-white sm:w-full sm:block`}>
+                <div className={`${selectedConversation ? "w-full":"hidden"}   bg-slate-900 text-white sm:w-full sm:block`}>
                   <RightSide />
                 </div>
               </div>
