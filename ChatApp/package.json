@@ -3,10 +3,9 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js",
-    "dev": "nodemon server.js",
-    "build": "npm install && npm install --prefix clientChat && npm run build --prefix clientChat"
+    "dev":"nodemon serverChat/server.js",
+    "build": "npm install && npm install --prefix clientChat && npm run build --prefix clientChat",
+    "start": "nodemon serverChat/server.js"
   },
   "keywords": [],
   "author": "",
