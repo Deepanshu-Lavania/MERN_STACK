@@ -9,23 +9,16 @@ const Resume = () => {
   };
   const experiences = [
     {
-      title: "Senior MERN Stack Developer",
-      company: "Tech Innovations Inc.",
-      period: "2022 - Present",
-      description:
-        "Leading the development of scalable web applications using the MERN stack. Implementing best practices for code quality and performance optimization. Mentoring junior developers and conducting code reviews.",
-    },
-    {
       title: "Full Stack Developer",
-      company: "Digital Solutions Ltd.",
-      period: "2020 - 2022",
+      //   company: "Digital Solutions Ltd.",
+      period: "2023-2025",
       description:
         "Developed and maintained multiple client projects using React.js, Node.js, and MongoDB. Collaborated with design and product teams to implement new features and improve user experience.",
     },
     {
       title: "Frontend Developer",
-      company: "WebCraft Studios",
-      period: "2018 - 2020",
+      //   company: "WebCraft Studios",
+      period: "2022-2025",
       description:
         "Created responsive and interactive user interfaces using React.js and modern CSS frameworks. Worked closely with backend developers to integrate APIs and optimize application performance.",
     },
@@ -33,16 +26,9 @@ const Resume = () => {
 
   const education = [
     {
-      degree: "Master of Computer Applications",
-      institution: "Delhi University",
-      period: "2016 - 2018",
-      description:
-        "Specialized in Web Technologies and Software Development. Graduated with distinction and completed a thesis on modern web application architectures.",
-    },
-    {
       degree: "Bachelor of Computer Applications",
-      institution: "Indraprastha University",
-      period: "2013 - 2016",
+      institution: "AKTU University",
+      period: "2021 - 2025",
       description:
         "Focused on programming fundamentals, data structures, and web development basics. Participated in multiple hackathons and coding competitions.",
     },
@@ -107,14 +93,11 @@ const Resume = () => {
                   className="relative pl-8 border-l-2 border-blue-200 pb-8"
                 >
                   <div className="absolute -left-2 top-0 w-4 h-4 bg-blue-600 rounded-full"></div>
-                  <div className="bg-gray-50 p-6 rounded-lg shadow-sm">
-                    <h4 className="text-xl font-semibold text-gray-800">
-                      {exp.title}
-                    </h4>
+                  <div className="bg-gray-50 p-3  rounded-lg shadow-sm md:p-6">
                     <div className="flex flex-wrap justify-between items-center mt-1 mb-3">
-                      <span className="text-blue-600 font-medium">
-                        {exp.company}
-                      </span>
+                      <h4 className="text-xl font-semibold text-gray-800">
+                        {exp.title}
+                      </h4>
                       <span className="text-gray-500 text-sm bg-gray-200 px-3 py-1 rounded-full">
                         {exp.period}
                       </span>
@@ -141,7 +124,7 @@ const Resume = () => {
                   className="relative pl-8 border-l-2 border-blue-200 pb-8"
                 >
                   <div className="absolute -left-2 top-0 w-4 h-4 bg-blue-600 rounded-full"></div>
-                  <div className="bg-gray-50 p-6 rounded-lg shadow-sm">
+                  <div className="bg-gray-50 p-3 rounded-lg shadow-sm md:p-6">
                     <h4 className="text-xl font-semibold text-gray-800">
                       {edu.degree}
                     </h4>
