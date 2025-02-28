@@ -1,5 +1,13 @@
-import React from 'react';
-import { Github, Linkedin, Twitter, Mail, Code, Phone, MapPin } from 'lucide-react';
+import React from "react";
+import {
+  Github,
+  Linkedin,
+  Twitter,
+  Mail,
+  Code,
+  Phone,
+  MapPin,
+} from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -14,9 +22,16 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="md:col-span-2">
             <div className="flex items-center mb-4">
-              <span style={lobsterFont} className=" text-4xl font-bold text-white underline">DL.</span>            </div>
+              <span
+                style={lobsterFont}
+                className=" text-4xl font-bold text-white underline"
+              >
+                DL.
+              </span>{" "}
+            </div>
             <p className="text-gray-400 mb-6 max-w-md">
-              A passionate MERN Stack Developer focused on creating efficient, scalable, and user-friendly web applications.
+              A passionate MERN Stack Developer focused on creating efficient,
+              scalable, and user-friendly web applications.
             </p>
             <div className="flex space-x-4">
               <a
@@ -57,43 +72,77 @@ const Footer = () => {
           </div>
 
           <div>
-            <h3 className="text-lg font-semibold mb-4 border-b border-gray-700 pb-2">Quick Links</h3>
-            <ul className="space-y-2">
+            <h3 className="text-lg font-semibold mb-4 border-b border-gray-700 pb-2">
+              Quick Links
+            </h3>
+            <ul className="space-y-2 grid grid-cols-2 lg:grid-cols-1">
               <li>
-                <a href="#home" className="text-gray-400 hover:text-white transition-colors">Home</a>
+                <a
+                  href="#home"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
+                  Home
+                </a>
               </li>
               <li>
-                <a href="#about" className="text-gray-400 hover:text-white transition-colors">About Me</a>
+                <a
+                  href="#about"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
+                  About Me
+                </a>
               </li>
               <li>
-                <a href="#skills" className="text-gray-400 hover:text-white transition-colors">Skills</a>
+                <a
+                  href="#skills"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
+                  Skills
+                </a>
               </li>
               <li>
-                <a href="#resume" className="text-gray-400 hover:text-white transition-colors">Resume</a>
+                <a
+                  href="#resume"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
+                  Resume
+                </a>
               </li>
               <li>
-                <a href="#projects" className="text-gray-400 hover:text-white transition-colors">Projects</a>
+                <a
+                  href="#projects"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
+                  Projects
+                </a>
               </li>
               <li>
-                <a href="#contact" className="text-gray-400 hover:text-white transition-colors">Contact</a>
+                <a
+                  href="#contact"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
+                  Contact
+                </a>
               </li>
             </ul>
           </div>
 
           <div>
-            <h3 className="text-lg font-semibold mb-4 border-b border-gray-700 pb-2">Contact Info</h3>
+            <h3 className="text-lg font-semibold mb-4 border-b border-gray-700 pb-2">
+              Contact Info
+            </h3>
             <ul className="space-y-3">
               <li className="flex items-center">
                 <Mail className="h-5 w-5 text-blue-400 mr-2" />
-                <span className="text-gray-400">deepanshu@example.com</span>
+                <span className="text-gray-400">deepanshu631088@gmail.com</span>
               </li>
               <li className="flex items-center">
                 <Phone className="h-5 w-5 text-blue-400 mr-2" />
-                <span className="text-gray-400">+91 98765 43210</span>
+                <span className="text-gray-400">+91 6397105488</span>
               </li>
               <li className="flex items-center">
                 <MapPin className="h-5 w-5 text-blue-400 mr-2" />
-                <span className="text-gray-400">New Delhi, India</span>
+                <span className="text-gray-400">Meerut, India</span>
               </li>
             </ul>
           </div>
@@ -101,7 +150,17 @@ const Footer = () => {
 
         <div className="mt-12 pt-8 border-t border-gray-800 text-center">
           <p className="text-gray-400">
-            &copy; {currentYear} Deepanshu Lavania. All rights reserved.
+            Copyright &copy; {currentYear} Deepanshu Lavania. All rights
+            reserved.
+          </p>
+          <p className="text-gray-400">
+            Designed By{" "}
+            <span
+              className="underline text-gray-300 cursor-pointer"
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            >
+              Deepanshu Lavania
+            </span>
           </p>
         </div>
       </div>
