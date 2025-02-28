@@ -35,10 +35,10 @@ const Resume = () => {
   ];
 
   return (
-    <div className="py-20 bg-white">
+    <div className="py-10 bg-white">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
             My Resume
           </h2>
           <div className="w-20 h-1 bg-blue-600 mx-auto"></div>

@@ -27,15 +27,15 @@ const Footer = () => {
                 className=" text-4xl font-bold text-white underline"
               >
                 DL.
-              </span>{" "}
+              </span>
             </div>
-            <p className="text-gray-400 mb-6 max-w-md">
+            <p className="text-gray-400 mb-6 max-w-[100%]">
               A passionate MERN Stack Developer focused on creating efficient,
               scalable, and user-friendly web applications.
             </p>
             <div className="flex space-x-4">
               <a
-                href="https://github.com"
+                href="https://github.com/Deepanshu-Lavania"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 bg-gray-800 text-white rounded-full hover:bg-gray-700 transition-colors"
@@ -44,7 +44,7 @@ const Footer = () => {
                 <Github size={20} />
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/deepanshulavania/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors"
@@ -60,13 +60,6 @@ const Footer = () => {
                 aria-label="Twitter"
               >
                 <Twitter size={20} />
-              </a>
-              <a
-                href="mailto:deepanshu@example.com"
-                className="p-2 bg-red-500 text-white rounded-full hover:bg-red-600 transition-colors"
-                aria-label="Email"
-              >
-                <Mail size={20} />
               </a>
             </div>
           </div>
@@ -132,17 +125,44 @@ const Footer = () => {
               Contact Info
             </h3>
             <ul className="space-y-3">
+              {/* Email */}
               <li className="flex items-center">
                 <Mail className="h-5 w-5 text-blue-400 mr-2" />
-                <span className="text-gray-400">deepanshu631088@gmail.com</span>
+                <a
+                  href="https://mail.google.com/mail/?view=cm&fs=1&to=deepanshu631088@gmail.com"
+                  aria-label="Email"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span className="text-gray-400 hover:text-white">
+                    deepanshu631088@gmail.com
+                  </span>
+                </a>
               </li>
+
+              {/* Phone */}
               <li className="flex items-center">
                 <Phone className="h-5 w-5 text-blue-400 mr-2" />
-                <span className="text-gray-400">+91 6397105488</span>
+                <a href="tel:+916397105488" aria-label="Phone">
+                  <span className="text-gray-400 hover:text-white cursor-pointer">
+                    +91 6397105488
+                  </span>
+                </a>
               </li>
+
+              {/* Location */}
               <li className="flex items-center">
                 <MapPin className="h-5 w-5 text-blue-400 mr-2" />
-                <span className="text-gray-400">Meerut, India</span>
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=Meerut,India"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Location"
+                >
+                  <span className="text-gray-400 hover:text-white cursor-pointer">
+                    Meerut, India
+                  </span>
+                </a>
               </li>
             </ul>
           </div>
@@ -154,7 +174,7 @@ const Footer = () => {
             reserved.
           </p>
           <p className="text-gray-400">
-            Designed By{" "}
+            Designed By &nbsp;
             <span
               className="underline text-gray-300 cursor-pointer"
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
