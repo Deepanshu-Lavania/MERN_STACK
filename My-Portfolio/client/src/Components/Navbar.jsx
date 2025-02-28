@@ -51,6 +51,9 @@ function Navbar({ activeSection, setActiveSection }) {
       });
     }
   }; 
+  
+
+
   const lobsterFont = {
     fontFamily: "Lobster, cursive", // Fix syntax & use correct fallback
     fontWeight: 400,
