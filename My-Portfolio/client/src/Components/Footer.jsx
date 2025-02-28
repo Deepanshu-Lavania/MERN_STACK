@@ -3,6 +3,7 @@ import {
   Github,
   Linkedin,
   Mail,
+  Twitter,
   Phone,
   MapPin,
 } from "lucide-react";

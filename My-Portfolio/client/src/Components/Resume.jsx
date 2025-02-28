@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Briefcase, GraduationCap, EyeClosed, Eye } from "lucide-react";
-import resume from "../../public/MyImage/EditMy-Resume(Deepanshu)_page-0001 (1).jpg";
+import resume from "/MyImage/EditMy-Resume(Deepanshu)_page-0001 (1).jpg";
 
 const Resume = () => {
   const [viewResume, setViewResume] = useState(false);
