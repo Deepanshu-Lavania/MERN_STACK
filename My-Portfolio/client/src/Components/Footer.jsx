@@ -185,16 +185,15 @@ const Footer = () => {
           </p>
           <p className="text-gray-400 flex justify-center space-x-6">
             <div>
-            Designed By &nbsp;
-            <span
-              className="text-gray-300 cursor-pointer"
-              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            >
-              Deepanshu Lavania
-            </span>
+              Designed By &nbsp;
+              <span
+                className="text-gray-300 cursor-pointer"
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
+                Deepanshu Lavania
+              </span>
             </div>
             <div
-              className="p-2 bg-gray-800 cursor-pointer text-white rounded-full hover:bg-gray-700 transition-colors"
+              className="mt-1 transition-color p-2 bg-gray-800 cursor-pointer text-white rounded-full hover:bg-gray-700 animate-bounce"
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             >
               <Upload size={20} />
