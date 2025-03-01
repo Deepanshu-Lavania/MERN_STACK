@@ -6,7 +6,8 @@ import {
   Twitter,
   Phone,
   MapPin,
-  Send
+  Send,
+  Upload,
 } from "lucide-react";
 
 const Footer = () => {
@@ -182,14 +183,22 @@ const Footer = () => {
             Copyright &copy; {currentYear} Deepanshu Lavania. All rights
             reserved.
           </p>
-          <p className="text-gray-400">
+          <p className="text-gray-400 flex justify-center space-x-6">
+            <div>
             Designed By &nbsp;
             <span
-              className="underline text-gray-300 cursor-pointer"
+              className="text-gray-300 cursor-pointer"
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             >
               Deepanshu Lavania
             </span>
+            </div>
+            <div
+              className="p-2 bg-gray-800 cursor-pointer text-white rounded-full hover:bg-gray-700 transition-colors"
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            >
+              <Upload size={20} />
+            </div>
           </p>
         </div>
       </div>
