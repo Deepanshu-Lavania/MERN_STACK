@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 
 const URI = process.env.MONGODB_URI; 
-// const URI = "mongodb+srv://deepanshulavania69:4emRjUvAlAZWJZ49@cluster0.i7e9n.mongodb.net/ChatApp?retryWrites=true&w=majority&appName=Cluster0"
 
 const connectDb = async () => {
   try {
