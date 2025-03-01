@@ -6,6 +6,7 @@ import {
   Twitter,
   Phone,
   MapPin,
+  Send
 } from "lucide-react";
 
 const Footer = () => {
@@ -33,6 +34,15 @@ const Footer = () => {
               scalable, and user-friendly web applications.
             </p>
             <div className="flex space-x-4">
+              <a
+                href="https://t.me/DeepanshuLavania"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 bg-sky-400 text-white rounded-full hover:bg-sky-300 transition-colors"
+                aria-label="GitHub"
+              >
+                <Send size={20} />
+              </a>
               <a
                 href="https://github.com/Deepanshu-Lavania"
                 target="_blank"

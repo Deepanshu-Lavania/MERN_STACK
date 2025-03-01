@@ -85,11 +85,7 @@ const Contact = () => {
                 Send Me a Message
               </h3>
 
-              {submitMessage && (
-                <div className="mb-6 p-4 bg-green-50 text-green-700 rounded-lg">
-                  {submitMessage}
-                </div>
-              )}
+              
 
               <form onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-6">
@@ -148,6 +144,11 @@ const Contact = () => {
                     placeholder="Type your message..."
                   ></textarea>
                 </div>
+                {submitMessage && (
+                <div className="mb-6 p-4 bg-green-50 text-green-700 rounded-lg">
+                  {submitMessage}
+                </div>
+              )}
                 <button
                   type="submit"
                   disabled={isSubmitting}
