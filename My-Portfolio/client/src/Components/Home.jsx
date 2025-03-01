@@ -1,6 +1,7 @@
 import React, { memo, useEffect, useMemo, useState } from "react";
 import { Github, Linkedin, Mail, ArrowDown } from "lucide-react";
 import image from "/MyImage/Me_img-removebg-preview (1).png";
+import './Css/Home.css';
 
 function Home({ setActiveSection }) {
   const [jobTitle, setJobTitle] = useState("");
@@ -63,9 +64,9 @@ function Home({ setActiveSection }) {
   };
 
   return (
-    <div className="min-h-screen flex items-center relative pt-20 md:pt-10 bg-gradient-to-br from-blue-50 to-indigo-50">
-      <div className="container mx-auto px-4 md:px-6 pb-30 md:py-15">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6 lg:gap-12">
+    <div className="min-h-screen flex items-center relative pt-20 md:pt-10 bg-gradient-to-br from-blue-100 to-indigo-100">
+      <div className="container mx-auto px-4 md:px-6 pb-30 md:py-15 ">
+        <div className="flex flex-col md:flex-row items-center justify-between lg:justify-around gap-6 lg:gap-3">
           <div className="order-2 w-full md:w-1/2 space-y-5 sm:space-y-3 lg:space-y-2 lg:order-1">
             <h2 className="text-xl md:text-2xl font-medium text-gray-500">
               Hello, I'm
@@ -78,7 +79,7 @@ function Home({ setActiveSection }) {
               style={nameFont}
             >
               {jobTitle}
-              <span className="text-gray-600">{showSlash ? "/" : ""}</span>
+              <span className="text-gray-600">{showSlash ? " /" : ""}</span>
             </h3>
             <p className="text-lg text-gray-600 max-w-lg">
               I build responsive web applications with modern technologies,
@@ -133,17 +134,12 @@ function Home({ setActiveSection }) {
               </div>
             </div>
           </div>
-          <div className="w-full md:w-1/2 flex order-1 justify-center">
-            <div
-              className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white shadow-xl 
-                      before:absolute before:inset-0 before:rounded-full before:border-4 before:border-blue-500 
-                      before:animate-pulse before:opacity-50 after:absolute after:inset-0 after:rounded-full 
-                      after:border-4 after:border-blue-500 after:animate-spin-slow after:opacity-50"
-            >
+          <div className="w-full md:w-1/3 flex order-1 justify-center">
+            <div class="my-img">
               <img
                 src={image}
                 alt="Deepanshu Lavania"
-                className="w-full h-full object-cover "
+                className="object-cover"
                 style={{ objectPosition: "center 6%" }}
               />
             </div>
