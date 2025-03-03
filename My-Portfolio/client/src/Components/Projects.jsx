@@ -24,7 +24,7 @@ const Projects = () => {
       description: "A real-time messaging platform with private chats and media sharing.",
       technologies: ["React", "Node.js", "Socket.io", "MongoDB"],
       liveLink: "https://example.com",
-      githubLink: "https://github.com",
+      githubLink: "https://github.com/Deepanshu-Lavania/MERN_STACK/tree/main/ChatApp",
     },
     {
       id: 3,
@@ -34,7 +34,7 @@ const Projects = () => {
       description: "A simple Snake Water Gun game built with HTML, CSS, and JavaScript.",
       technologies: ["HTML", "CSS", "JavaScript"],
       liveLink: "https://deepanshu-lavania.github.io/SWG_Game/",
-      githubLink: "https://github.com",
+      githubLink: "https://github.com/Deepanshu-Lavania/SWG_Game",
     },
     {
       id: 4,
@@ -43,8 +43,8 @@ const Projects = () => {
       image: "/MyImage/Portfolio_img.jpg",
       description: "A personal portfolio website showcasing projects and skills.",
       technologies: ["React", "Tailwind CSS", "EmailJs"],
-      liveLink: "https://example.com",
-      githubLink: "https://github.com",
+      liveLink: "deepanshulavania-portfolio.netlify.app",
+      githubLink: "https://github.com/Deepanshu-Lavania/My-Portfolio/tree/main/client",
     },
     {
       id: 5,
@@ -54,7 +54,7 @@ const Projects = () => {
       description: "An educational hub platform for learning resources.",
       technologies: ["HTML", "CSS", "JavaScript"],
       liveLink: "https://deepanshu-lavania.github.io/EduHub/",
-      githubLink: "https://github.com",
+      githubLink: "https://github.com/Deepanshu-Lavania/EduHub",
     },
   ];
 
