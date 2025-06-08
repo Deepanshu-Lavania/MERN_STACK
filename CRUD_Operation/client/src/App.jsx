@@ -76,7 +76,7 @@ const App = () => {
           email: "",
           password: "",
           phone: "",
-          image: null,
+          image:""|| null,
         });
       } else {
         throw new Error("Image upload failed");

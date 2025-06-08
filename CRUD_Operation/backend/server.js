@@ -31,19 +31,19 @@
 
 const express = require('express');
 require("dotenv").config();
-const mongoose = require('mongoose');
+// const mongoose = require('mongoose');
 const cors = require('cors');
 const multer = require('multer');
 const path = require('path');
-const User = require('./models/user-model');
-
+const connectDB = require("./utils/db.js");
 const app = express();
 app.use(cors());
+const User = require('./models/user-model.js')
 app.use(express.json());
 app.use('/uploads', express.static('uploads'));
 
 // MongoDB connection
-mongoose.connect(process.env.MONGO_DB_URI)
+// mongoose.connect(process.env.MONGO_DB_URI);
 
 // Multer config for image upload
 const storage = multer.diskStorage({
@@ -123,7 +123,7 @@ app.post('/api/users/upload', upload.single('image'), async (req, res) => {
   tempUserData = {};
 
   res.status(200).send({
-    msg: "User created successfully",
+    msg: "User created successfully !",
     user,
   });
 });
@@ -152,4 +152,6 @@ app.delete('/api/users/:id', async (req, res) => {
   res.send({ success: true });
 });
 const port = process.env.PORT || 4000;
-app.listen(port, () => console.log(`server is listenging at http://localhost:${port}`))
+connectDB().then(()=>{
+  app.listen(port, () => console.log(`server is listenging at http://localhost:${port}`))
+})
